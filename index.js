@@ -150,9 +150,13 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(currentList, flavorToRemove){
+/*your code here*/
+    currentList.splice(currentList.indexOf(flavorToRemove), 1);
+    return currentList;
 }
+
+console.log(removeLastFlavor(originalFlavors, "Rocky Road"));
 
 
 
