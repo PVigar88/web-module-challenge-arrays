@@ -182,9 +182,19 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(currentList,searchString){
+/*your code here*/
+    let promoList = [];
+    for (let i = 0; i < currentList.length; i++){
+        if (currentList[i].includes(searchString)) {
+            promoList.push(currentList[i]);
+        }
+    }
+    return promoList;
+        
 }
+
+console.log(filterByWord(originalFlavors, "chocolate"));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
