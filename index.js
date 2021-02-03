@@ -45,9 +45,13 @@ Use the copy function below to do the following:
     2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
+function copy(oldArray){
+/*your code here*/
+    let newArray = [...oldArray];
+    return newArray;
 }    
+
+console.log(copy(originalFlavors));
 
 
 
@@ -64,9 +68,12 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(arrayToCount){
+/*your code here*/
+    return (arrayToCount.length === 31);
 }
+
+console.log(is31Flavors(originalFlavors));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -81,10 +88,14 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(currentList, newFlavor){
+/*your code here*/
+    currentList.unshift(newFlavor);
+
+    return currentList;
 }
 
+console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -97,9 +108,13 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(currentList){
+/*your code here*/
+    currentList.pop();
+    return currentList;
 }
+
+console.log(removeLastFlavor(originalFlavors));
 
 
 
@@ -114,9 +129,12 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(currentList, targetItem){
+/*your code here*/
+    return currentList[targetItem];
 }
+
+console.log(getFlavorByIndex(originalFlavors, 5));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -134,9 +152,13 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(currentList, flavorToRemove){
+/*your code here*/
+    currentList.splice(currentList.indexOf(flavorToRemove), 1);
+    return currentList;
 }
+
+console.log(removeLastFlavor(originalFlavors, "Rocky Road"));
 
 
 
@@ -160,9 +182,19 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(currentList,searchString){
+/*your code here*/
+    let promoList = [];
+    for (let i = 0; i < currentList.length; i++){
+        if (currentList[i].includes(searchString)) {
+            promoList.push(currentList[i]);
+        }
+    }
+    return promoList;
+        
 }
+
+console.log(filterByWord(originalFlavors, "chocolate"));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
@@ -177,9 +209,16 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(arraytoAverage){
+/*code here*/
+    let averageTotal = 0;
+    for (let i = 0; i < arraytoAverage.length; i++){
+        averageTotal += arraytoAverage[i].split(' ').length;
+    }
+    return averageTotal/ arraytoAverage.length;
 }
+
+console.log(getAverageWordLength(originalFlavors));
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -195,10 +234,21 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arrayOne, arrayTwo, arrayThree, arrayFour){
+/*code here*/
+    let fullArray = arrayOne.concat(arrayTwo, arrayThree, arrayFour);
+    let randomIndex;
+    let randomFlavors = [];
+    
+    while (randomFlavors.length < 31){
+        randomIndex = Math.floor(Math.random() * (fullArray.length-1));
+        randomFlavors.push(fullArray[randomIndex]);
+    }
+    return randomFlavors;
 }
 
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors).length);
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
     "Date night",
